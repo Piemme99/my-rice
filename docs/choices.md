@@ -4,7 +4,7 @@ This document captures the rationale behind each major decision in the rice. Upd
 
 ## Base System
 - **Installer:** `archinstall` — fast, repeatable baseline prior to bootstrap.
-- **Filesystem:** Btrfs on LUKS with subvolumes `@`, `@home`, `@log` for snapshot-friendly upgrades.
+- **Filesystem:** Ext4 root (optionally atop LUKS) for a simple, well-supported workstation base.
 - **Bootloader:** Limine — aligns with Omarchy conventions and supports themed boot UI.
 
 ## Desktop Stack
@@ -28,7 +28,6 @@ This document captures the rationale behind each major decision in the rice. Upd
 - **Audio Controls:** PipeWire + WirePlumber + pamixer + playerctl + pavucontrol for media keys and mixer GUI.
 - **Bluetooth:** Blueman front-end (`blueman`) launched from Waybar.
 - **Calendar:** GNOME Calendar for quick clock integration (`clock` click action).
-- **File Sharing:** LocalSend for quick LAN transfers.
 
 ## Fonts & Theme
 - JetBrainsMono Nerd & Cascadia Mono Nerd as monospace defaults.

@@ -75,8 +75,8 @@ guard_environment() {
 
   local root_fs
   root_fs="$(findmnt -n -o FSTYPE /)"
-  if [[ "$root_fs" != "btrfs" ]]; then
-    log_warn "Root filesystem is '$root_fs'. Recommended Btrfs for snapshot workflow."
+  if [[ "$root_fs" != "ext4" ]]; then
+    log_warn "Root filesystem is '$root_fs'. Profile assumes ext4."
   fi
 
   require_command sudo

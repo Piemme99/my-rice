@@ -29,7 +29,7 @@ cd ~/.local/src/my-rice
 
 | Choice            | Selection                                            | Rationale                                                 |
 |-------------------|------------------------------------------------------|-----------------------------------------------------------|
-| Disk Layout       | Btrfs on LUKS, subvolumes `@`, `@home`, `@log`       | Snapshot-friendly and resilient for workstation use       |
+| Disk Layout       | Ext4 root (optionally on LUKS)                        | Straightforward setup; easy to reproduce                  |
 | Swap              | 8 GiB swapfile (via archinstall option)              | Hibernate-ready, covers memory spikes                     |
 | Bootloader        | Limine                                              | Matches Omarchy defaults and theme expectations           |
 | Kernel            | Latest (linux)                                       | Upstream Arch kernel; works well with AMD hardware        |
@@ -38,9 +38,11 @@ cd ~/.local/src/my-rice
 | Timezone          | Prompted during archinstall                          | Set to local region                                       |
 | Packages          | Only archinstall essentials                          | All desktop packages managed by this repo                 |
 
+A detailed walkthrough for each Archinstall prompt lives in [`docs/archinstall.md`](docs/archinstall.md).
+
 ## What the Bootstrap Script Does
 
-- Validates environment (Arch, Btrfs, Limine, user `piemme`).
+- Validates environment (Arch, ext4 root recommended, Limine, user `piemme`).
 - Installs package groups listed in `packages/pacman.txt` and `packages/aur.txt`.
 - Builds and installs the AUR helper `paru-bin` if missing, then syncs AUR packages.
 - Deploys configs under `~/.config` and helper scripts under `~/.local/bin`.
@@ -67,7 +69,6 @@ cd ~/.local/src/my-rice
 | Input Method | Fcitx5                                    | Preconfigured env vars + autostart agent |
 | Clipboard    | `wl-clipboard` + Walker clipboard mode    | Supports copy/paste across Wayland apps |
 | Screenshots  | `grim` + `slurp` + `satty` + Hyprpicker   | Annotate, copy, and sample colors via keybinds |
-| File Sharing | LocalSend                                 | Quick LAN transfers |
 | System Info  | `fastfetch`, `btop`, `eza`, `zoxide`, `fzf`| Terminal suite for daily tasks |
 | Fonts        | JetBrainsMono Nerd, Cascadia Mono Nerd, Noto family | Fontconfig sets sane defaults |
 | GTK/Kvantum Theme | Catppuccin Mocha GTK + cursors from AUR | Ensures GTK apps match the palette |
@@ -105,11 +106,12 @@ Full rationale is documented in [`docs/choices.md`](docs/choices.md).
 5. **Neovim Plugins:** adjust LazyVim config in `configs/nvim/lua/plugins/`. Use `:Lazy sync` after changes.
 6. **Browser Defaults:** update `configs/firefox/policies/` (planned) and note change in documentation.
 
-## Logging & Troubleshooting
+## Logging, Testing & Troubleshooting
 
 - Installer logs: `/var/log/myrice-install.log`
 - Bootstrap progress uses Gum; press `Ctrl+C` to abort safely.
-- Common issues and fixes will be tracked in [`docs/troubleshooting.md`](docs/troubleshooting.md).
+- Follow [`docs/testing.md`](docs/testing.md) for the VM smoke-test checklist.
+- Common issues and fixes live in [`docs/troubleshooting.md`](docs/troubleshooting.md).
 
 ## Roadmap
 

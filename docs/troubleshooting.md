@@ -3,7 +3,7 @@
 Document any recurring issues and their fixes here. Update as the bootstrap script and configs evolve.
 
 ## Installation
-- **Bootstrap aborts with guard failure:** Verify system matches the archinstall profile (Btrfs root, Limine installed, running as user `piemme`).
+- **Bootstrap aborts with guard failure:** Verify system matches the archinstall profile (ext4 root, Limine installed, running as user `piemme`).
 - **Missing internet:** Ensure NetworkManager service is active before running the bootstrap script.
 - **AUR helper errors:** Remove any previous `paru`/`paru-bin` installation in `/tmp` or `$HOME/.cache/paru` and rerun the bootstrap to rebuild `paru-bin`.
 

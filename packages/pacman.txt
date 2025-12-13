@@ -39,7 +39,6 @@ hyprpicker
 imv
 jq
 kitty
-localsend
 luarocks
 mako
 mise
