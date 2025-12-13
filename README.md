@@ -82,9 +82,9 @@ Full rationale is documented in [`docs/choices.md`](docs/choices.md).
 | Launch Walker                | `SUPER + SPACE`        |
 | Open Terminal                | `SUPER + ENTER`        |
 | Open File Manager            | `SUPER + SHIFT + F`    |
-| Open Browser                 | `SUPER + SHIFT + B`    |
+| Open Browser                 | `SUPER + B`            |
 | Launch LazyVim Session       | `SUPER + SHIFT + N`    |
-| Close Focused Window         | `SUPER + Q`            |
+| Close Focused Window         | `SUPER + W`            |
 | Toggle Floating              | `SUPER + T`            |
 | Move Focus (left/down/up/right) | `SUPER + H/J/K/L`  |
 | Move Window to Workspace     | `SUPER + SHIFT + [1-9]`|

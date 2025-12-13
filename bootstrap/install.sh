@@ -170,6 +170,11 @@ setup_theme_links() {
   else
     rm -f "$current_dir/background" 2>/dev/null || true
   fi
+
+  if [ -f "$current_dir/theme/waybar.css" ]; then
+    mkdir -p "$HOME/.config/waybar"
+    ln -sfn "$current_dir/theme/waybar.css" "$HOME/.config/waybar/theme.css"
+  fi
 }
 
 deploy_configs() {
