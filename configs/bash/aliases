@@ -1,0 +1,9 @@
+# my-rice shell aliases
+# Sourced from ~/.bashrc by bootstrap to keep user customizations separate.
+
+# Prettified directory listing leveraging eza
+if command -v eza >/dev/null 2>&1; then
+  alias ll='eza -lh --group-directories-first --icons=auto'
+else
+  alias ll='ls -lh'
+fi

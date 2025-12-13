@@ -105,6 +105,7 @@ Full rationale is documented in [`docs/choices.md`](docs/choices.md).
 4. **Theme:** drop a wallpaper named `default.jpg` (or `default.png`) into `themes/catppuccin/backgrounds/`; bootstrap links it to `~/.config/myrice/current/background`.
 5. **Neovim Plugins:** adjust LazyVim config in `configs/nvim/lua/plugins/`. Use `:Lazy sync` after changes.
 6. **Browser Defaults:** update `configs/firefox/policies/` (planned) and note change in documentation.
+7. **Shell Aliases:** edit `~/.config/bash/aliases` to add custom shortcuts (bootstrap ensures `~/.bashrc` sources this file).
 
 ## Logging, Testing & Troubleshooting
 

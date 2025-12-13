@@ -177,6 +177,45 @@ setup_theme_links() {
   fi
 }
 
+
+ensure_bash_alias_hook() {
+  local bashrc="$HOME/.bashrc"
+  local hook='source "$HOME/.config/bash/aliases"'
+
+  [ -f "$bashrc" ] || touch "$bashrc"
+
+  if ! grep -Fq "$hook" "$bashrc" 2>/dev/null; then
+    {
+      echo ""
+      echo "# my-rice aliases"
+      echo "if [ -f \"$HOME/.config/bash/aliases\" ]; then"
+      echo "  source \"$HOME/.config/bash/aliases\""
+      echo "fi"
+    } >> "$bashrc"
+  fi
+}
+
+enable_unit_if_present() {
+  local scope="$1"
+  local unit="$2"
+
+  if [ "$scope" = "system" ]; then
+    if systemctl show -p UnitFileState "$unit" >/dev/null 2>&1; then
+      sudo systemctl enable --now "$unit"
+    else
+      log_warn "Skipping $unit (unit unavailable)"
+    fi
+  else
+    if systemctl --user show -p UnitFileState "$unit" >/dev/null 2>&1; then
+      systemctl --user enable --now "$unit"
+    else
+      log_warn "Skipping user unit $unit (unit unavailable)"
+    fi
+  fi
+}
+
+
+
 deploy_configs() {
   log_info "Deploying configuration files"
   mkdir -p "$HOME/.config"
@@ -198,6 +237,7 @@ deploy_configs() {
   fi
 
   setup_theme_links
+  ensure_bash_alias_hook
 
   if command -v fc-cache >/dev/null 2>&1; then
     fc-cache -f >/dev/null 2>&1 || true
@@ -208,7 +248,11 @@ enable_services() {
   log_info "Enabling system services"
   sudo systemctl enable --now NetworkManager.service
   sudo systemctl enable --now sddm.service
-  sudo systemctl enable --now pipewire-pulse.service wireplumber.service || true
+  enable_unit_if_present system pipewire.service
+  enable_unit_if_present system pipewire.socket
+  enable_unit_if_present user pipewire.service
+  enable_unit_if_present user pipewire-pulse.service
+  enable_unit_if_present user wireplumber.service
   sudo systemctl enable --now ufw.service || true
 }
 
