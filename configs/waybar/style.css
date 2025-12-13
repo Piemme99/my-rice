@@ -29,7 +29,7 @@ window#waybar {
   margin: 0 12px;
 }
 
-#pulseaudio, #battery, #network, #bluetooth, #tray {
+#pulseaudio, #battery, #tray {
   margin: 0 8px;
 }
 

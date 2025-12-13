@@ -57,15 +57,15 @@ A detailed walkthrough for each Archinstall prompt lives in [`docs/archinstall.m
 |--------------|-------------------------------------------|-------|
 | WM & Compositor | Hyprland + hypridle + hyprlock + hyprpaper | Mirrors Omarchy experience with gaps, keybinds, power saving |
 | Launcher     | Walker (Wayland app launcher from AUR)    | Configured with Catppuccin palette and symbol set |
-| Panel        | Waybar                                    | Workspaces, clock (opens GNOME Calendar), network, bluetooth, audio, battery, tray |
+| Panel        | Waybar                                    | Workspaces, clock (opens GNOME Calendar), audio, battery, tray |
 | Notifications| Mako                                      | Colors aligned to Catppuccin Mocha |
 | Audio        | PipeWire + WirePlumber + pamixer + pavucontrol + swayosd | Media keys with on-screen display + GUI mixer |
 | Terminal     | Alacritty (primary), Kitty & Ghostty (optional) | Catppuccin colorways, JetBrainsMono Nerd Font |
 | Editor       | Neovim + LazyVim distro + Catppuccin theme | Bootstrap script performs plugin sync |
 | Browser      | Firefox                                   | Tweaked for Wayland and Catppuccin compatibility |
 | File Manager | Nautilus + GVFS suite                     | Provides network shares, archives, previews |
-| Networking   | NetworkManager + `network-manager-applet` | GUI applet for Wi-Fi and VPN switching |
-| Bluetooth    | Blueman                                   | Launched from Waybar module for device management |
+| Networking   | NetworkManager                            | Controlled through CLI/desktop tools |
+| Bluetooth    | Optional (install manually)               | Waybar no longer embeds a status module |
 | Input Method | Fcitx5                                    | Preconfigured env vars + autostart agent |
 | Clipboard    | `wl-clipboard` + Walker clipboard mode    | Supports copy/paste across Wayland apps |
 | Screenshots  | `grim` + `slurp` + `satty` + Hyprpicker   | Annotate, copy, and sample colors via keybinds |

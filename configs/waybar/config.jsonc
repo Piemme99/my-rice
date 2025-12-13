@@ -4,7 +4,7 @@
   "height": 28,
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["clock"],
-  "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "tray"],
+  "modules-right": ["pulseaudio", "battery", "tray"],
 
   "hyprland/workspaces": {
     "on-click": "activate",
@@ -22,32 +22,21 @@
       "9": "9",
       "10": "0",
       "urgent": "",
-      "active": ""
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
     }
   },
 
   "clock": {
-    "format": "{:%a %d %b %H:%M}",
-    "tooltip": true,
-    "tooltip-format": "{:%A %d %B %Y}\nWeek {:%V}",
+    "format": "{:L%A %H:%M}",
+    "tooltip": false,
     "on-click": "uwsm-app -- gnome-calendar"
-  },
-
-  "network": {
-    "format": "{ifname}",
-    "format-wifi": " {essid}",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "󰤫",
-    "tooltip-format": "{ifname}: {ipaddr}\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
-    "on-click": "uwsm-app -- nm-connection-editor"
-  },
-
-  "bluetooth": {
-    "format": "",
-    "format-connected": "",
-    "format-disabled": "󰂲",
-    "tooltip-format": "{controller_alias}: {num_connections} devices",
-    "on-click": "uwsm-app -- blueman-manager"
   },
 
   "pulseaudio": {

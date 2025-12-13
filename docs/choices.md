@@ -11,10 +11,10 @@ This document captures the rationale behind each major decision in the rice. Upd
 - **Compositor:** Hyprland for dynamic tiling and animation support.
 - **Idle/Lock:** hypridle + hyprlock to integrate tightly with Hyprland.
 - **Wallpaper:** hyprpaper (fallback swaybg) to keep theme simple.
-- **Panel:** Waybar replicating Omarchy module layout.
+- **Panel:** Waybar with persistent workspaces, clock, audio, battery, and tray modules.
 - **Launcher:** Walker (AUR) for fuzzy search across apps/web.
 - **Session Manager:** SDDM autologin to Hyprland for quick startup.
-- **Networking:** NetworkManager with `network-manager-applet` for GUI management.
+- **Networking:** NetworkManager CLI/GUI tools (applet optional; not included by default).
 - **Input Method:** Fcitx5 (`fcitx5`, `fcitx5-gtk`, `fcitx5-qt`) for multilingual input and emoji.
 - **Color Picker:** Hyprpicker for quick sampling bound to `SUPER+Print`.
 
@@ -26,7 +26,7 @@ This document captures the rationale behind each major decision in the rice. Upd
 - **Notifications:** Mako with Catppuccin colors.
 - **Screenshots:** grim + slurp + satty for capture + annotate.
 - **Audio Controls:** PipeWire + WirePlumber + pamixer + playerctl + pavucontrol for media keys and mixer GUI.
-- **Bluetooth:** Blueman front-end (`blueman`) launched from Waybar.
+- **Bluetooth:** Optional; install Blueman manually if needed (Waybar no longer surfaces a status module).
 - **Calendar:** GNOME Calendar for quick clock integration (`clock` click action).
 
 ## Fonts & Theme

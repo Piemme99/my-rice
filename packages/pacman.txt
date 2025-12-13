@@ -5,9 +5,6 @@ alacritty
 base-devel
 bash-completion
 bat
-blueman
-bluez
-bluez-utils
 brightnessctl
 btop
 dust
@@ -43,7 +40,6 @@ luarocks
 mako
 mise
 nautilus
-network-manager-applet
 networkmanager
 neovim
 nodejs
