@@ -1,0 +1,77 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 28,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["network", "bluetooth", "pulseaudio", "battery", "tray"],
+
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "urgent": "",
+      "active": ""
+    }
+  },
+
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip": true,
+    "tooltip-format": "{:%A %d %B %Y}\nWeek {:%V}",
+    "on-click": "uwsm-app -- gnome-calendar"
+  },
+
+  "network": {
+    "format": "{ifname}",
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰤫",
+    "tooltip-format": "{ifname}: {ipaddr}\n⇣{bandwidthDownBytes} ⇡{bandwidthUpBytes}",
+    "on-click": "uwsm-app -- nm-connection-editor"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-connected": "",
+    "format-disabled": "󰂲",
+    "tooltip-format": "{controller_alias}: {num_connections} devices",
+    "on-click": "uwsm-app -- blueman-manager"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""]
+    },
+    "tooltip-format": "Volume {volume}%",
+    "scroll-step": 5,
+    "on-click": "uwsm-app -- pavucontrol"
+  },
+
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": " {capacity}%",
+    "format-discharging": "{capacity}% {icon}",
+    "format-full": "",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "Capacity {capacity}%\nPower {power:.1f}W"
+  },
+
+  "tray": {
+    "icon-size": 16,
+    "spacing": 10
+  }
+}

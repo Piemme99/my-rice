@@ -1,0 +1,20 @@
+@define-color background #1e1e2e;
+@define-color foreground #cdd6f4;
+@define-color accent #89dceb;
+
+window {
+  background-color: @background;
+  color: @foreground;
+}
+
+entry {
+  background-color: shade(@background, 0.95);
+  border: 1px solid @accent;
+  border-radius: 6px;
+  padding: 6px;
+}
+
+list row:selected {
+  background-color: @accent;
+  color: #1e1e2e;
+}

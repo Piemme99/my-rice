@@ -1,0 +1,3 @@
+# Default environment for UWSM sessions
+export TERMINAL=xdg-terminal-exec
+export EDITOR=nvim

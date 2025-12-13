@@ -1,0 +1,7 @@
+# AUR packages installed via paru.
+# Keep entries sorted alphabetically and ensure bootstrap/install.sh handles compilation.
+
+catppuccin-cursors-mocha
+catppuccin-gtk-theme-mocha
+catppuccin-kvantum-theme
+walker-git

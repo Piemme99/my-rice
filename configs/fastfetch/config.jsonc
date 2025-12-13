@@ -1,0 +1,22 @@
+{
+  "logo": {
+    "type": "builtin",
+    "source": "arch"
+  },
+  "modules": [
+    "os",
+    "kernel",
+    "host",
+    "cpu",
+    "gpu",
+    "memory",
+    "disk",
+    "uptime",
+    "packages",
+    {
+      "type": "command",
+      "key": "Theme",
+      "text": "echo 'Catppuccin Mocha'"
+    }
+  ]
+}

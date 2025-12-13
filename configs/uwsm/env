@@ -1,0 +1,4 @@
+# Session environment for my-rice
+export MYRICE_PATH=$HOME/.config/myrice
+export PATH=$HOME/.local/bin:$PATH
+source ~/.config/uwsm/default
