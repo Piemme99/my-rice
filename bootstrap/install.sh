@@ -102,31 +102,6 @@ install_pacman_packages() {
   sudo pacman -S --needed --noconfirm "${packages[@]}"
 }
 
-build_paru_bin() {
-  log_info "Building paru-bin from AUR"
-  require_command git
-
-  mkdir -p "$BUILD_DIR"
-  local workdir
-  workdir="$(mktemp -d "$BUILD_DIR/paru-bin.XXXXXX")"
-  git clone --depth 1 https://aur.archlinux.org/paru-bin.git "$workdir" >/dev/null 2>&1
-
-  pushd "$workdir" >/dev/null
-  makepkg -si --noconfirm
-  popd >/dev/null
-
-  rm -rf "$workdir"
-}
-
-ensure_paru() {
-  if command -v paru >/dev/null 2>&1; then
-    log_info "paru already installed"
-    return
-  fi
-
-  build_paru_bin
-}
-
 install_aur_packages() {
   mapfile -t aur_packages < <(read_package_file "$AUR_LIST")
   if ((${#aur_packages[@]} == 0)); then
@@ -134,9 +109,8 @@ install_aur_packages() {
     return
   fi
 
-  ensure_paru
-  log_info "Installing AUR packages (${#aur_packages[@]})"
-  paru -S --needed --noconfirm "${aur_packages[@]}"
+  log_info "Installing AUR packages with yay (${#aur_packages[@]})"
+  yay -S --needed --noconfirm "${aur_packages[@]}"
 }
 
 copy_config_entry() {

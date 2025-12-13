@@ -39,7 +39,7 @@ This document captures the rationale behind each major decision in the rice. Upd
 - `mise` installed for runtime management (optional but ready).
 
 ## AUR Packages
-- `paru-bin` (installed manually in bootstrap) as the helper.
+- `yay` (installed via pacman) is the helper used for all AUR operations.
 - `walker-git` for the launcher.
 - `catppuccin-gtk-theme-mocha`, `catppuccin-kvantum-theme`, `catppuccin-cursors-mocha` to keep visuals consistent beyond Waybar/Hyprland.
 

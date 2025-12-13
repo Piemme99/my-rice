@@ -1,4 +1,4 @@
-# AUR packages installed via paru.
+# AUR packages installed via yay.
 # Keep entries sorted alphabetically and ensure bootstrap/install.sh handles compilation.
 
 catppuccin-cursors-mocha
