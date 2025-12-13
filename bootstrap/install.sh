@@ -195,26 +195,6 @@ ensure_bash_alias_hook() {
   fi
 }
 
-enable_unit_if_present() {
-  local scope="$1"
-  local unit="$2"
-
-  if [ "$scope" = "system" ]; then
-    if systemctl show -p UnitFileState "$unit" >/dev/null 2>&1; then
-      sudo systemctl enable --now "$unit"
-    else
-      log_warn "Skipping $unit (unit unavailable)"
-    fi
-  else
-    if systemctl --user show -p UnitFileState "$unit" >/dev/null 2>&1; then
-      systemctl --user enable --now "$unit"
-    else
-      log_warn "Skipping user unit $unit (unit unavailable)"
-    fi
-  fi
-}
-
-
 
 deploy_configs() {
   log_info "Deploying configuration files"
@@ -248,11 +228,6 @@ enable_services() {
   log_info "Enabling system services"
   sudo systemctl enable --now NetworkManager.service
   sudo systemctl enable --now sddm.service
-  enable_unit_if_present system pipewire.service
-  enable_unit_if_present system pipewire.socket
-  enable_unit_if_present user pipewire.service
-  enable_unit_if_present user pipewire-pulse.service
-  enable_unit_if_present user wireplumber.service
   sudo systemctl enable --now ufw.service || true
 }
 
