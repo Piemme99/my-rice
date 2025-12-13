@@ -5,7 +5,7 @@ Document any recurring issues and their fixes here. Update as the bootstrap scri
 ## Installation
 - **Bootstrap aborts with guard failure:** Verify system matches the archinstall profile (ext4 root, Limine installed, running as user `piemme`).
 - **Missing internet:** Ensure NetworkManager service is active before running the bootstrap script.
-- **AUR helper errors:** Ensure `yay` is installed via pacman (`sudo pacman -S --needed yay`). Remove any leftover `~/.cache/yay` build artifacts and rerun the bootstrap.
+- **AUR helper errors:** Bootstrap first tries to install `yay` via pacman, then falls back to building from AUR. If both fail, remove any leftover `~/.cache/yay` and `$XDG_STATE_HOME/myrice/build/yay*` directories, ensure `base-devel` and `git` are installed, and rerun the script. You can also install `yay` manually (`git clone https://aur.archlinux.org/yay.git && cd yay && makepkg -si`).
 
 ## Hyprland Session
 - **Blank background:** Ensure `themes/catppuccin/backgrounds/default.jpg` (or `.png`) exists before running the bootstrap, or rerun it after adding the file.

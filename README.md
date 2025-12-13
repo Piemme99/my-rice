@@ -44,7 +44,7 @@ A detailed walkthrough for each Archinstall prompt lives in [`docs/archinstall.m
 
 - Validates environment (Arch, ext4 root recommended, Limine, user `piemme`).
 - Installs package groups listed in `packages/pacman.txt` and `packages/aur.txt`.
-- Installs the `yay` AUR helper (from pacman) and uses it to sync AUR packages.
+- Installs the `yay` AUR helper (tries pacman first, then builds from AUR if needed) and uses it to sync AUR packages.
 - Deploys configs under `~/.config` and helper scripts under `~/.local/bin`.
 - Links Catppuccin theme assets under `~/.config/myrice/` and refreshes font cache.
 - Preconfigures Neovim with LazyVim + Catppuccin.
