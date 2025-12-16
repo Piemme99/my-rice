@@ -25,12 +25,60 @@ window#waybar {
   border-radius: 6px;
 }
 
+#workspaces button.urgent {
+  color: #f38ba8;
+}
+
+#mpris {
+  margin: 0 8px;
+  color: @accent;
+}
+
+#mpris.paused {
+  color: @foreground;
+}
+
 #clock {
   margin: 0 12px;
 }
 
-#pulseaudio, #battery, #tray {
+#disk,
+#cpu,
+#memory,
+#network {
+  margin: 0 6px;
+}
+
+#cpu:hover {
+  background: @surface;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+#network.disconnected {
+  color: #f38ba8;
+}
+
+#pulseaudio,
+#battery,
+#tray {
   margin: 0 8px;
+}
+
+#pulseaudio.muted {
+  color: #6c7086;
+}
+
+#battery.charging {
+  color: #a6e3a1;
+}
+
+#battery.warning:not(.charging) {
+  color: #fab387;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
 }
 
 tooltip {

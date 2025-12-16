@@ -15,14 +15,14 @@ This document captures the rationale behind each major decision in the rice. Upd
 - **Launcher:** Walker (AUR) for fuzzy search across apps/web.
 - **Session Manager:** SDDM autologin to Hyprland for quick startup.
 - **Networking:** NetworkManager CLI/GUI tools (applet optional; not included by default).
-- **Input Method:** Fcitx5 (`fcitx5`, `fcitx5-gtk`, `fcitx5-qt`) for multilingual input and emoji.
+- **Input Method:** None by default to keep the bootstrap lean; install an IME later if multilingual input is needed.
 - **Color Picker:** Hyprpicker for quick sampling bound to `SUPER+Print`.
 
 ## Applications
 - **Browser:** Firefox (Wayland native, themeable).
-- **Terminal:** Alacritty primary; Kitty & Ghostty optional fallback.
+- **Terminal:** Alacritty (single default for faster installs).
 - **Editor:** Neovim with LazyVim distro + Catppuccin plugin.
-- **File Manager:** Nautilus with GVFS extras for network shares/archives.
+- **File Manager:** Nautilus with GVFS extras (MTP + NFS backends by default; install `gvfs-smb` later if Windows shares are needed).
 - **Notifications:** Mako with Catppuccin colors.
 - **Screenshots:** grim + slurp + satty for capture + annotate.
 - **Audio Controls:** PipeWire + WirePlumber + pamixer + playerctl + pavucontrol for media keys and mixer GUI.
@@ -31,7 +31,7 @@ This document captures the rationale behind each major decision in the rice. Upd
 
 ## Fonts & Theme
 - JetBrainsMono Nerd & Cascadia Mono Nerd as monospace defaults.
-- Noto font families cover UI/emoji.
+- Noto font families cover UI text; emoji fonts are omitted for a slimmer image.
 - Catppuccin Mocha across Hyprland, Waybar, terminals, GTK, and Neovim (GTK/Kvantum theme + cursors sourced from AUR packages). Theme assets live in `~/.config/myrice/themes/` with `current/theme` symlinked for easy switching.
 
 ## Development Tooling

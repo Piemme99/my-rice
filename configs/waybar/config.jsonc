@@ -2,15 +2,15 @@
   "layer": "top",
   "position": "top",
   "height": 28,
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock"],
-  "modules-right": ["pulseaudio", "battery", "tray"],
+  "modules-right": ["disk", "cpu", "memory", "network", "pulseaudio", "battery", "tray"],
 
   "hyprland/workspaces": {
+    "all-outputs": true,
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "",
       "1": "1",
       "2": "2",
       "3": "3",
@@ -21,8 +21,9 @@
       "8": "8",
       "9": "9",
       "10": "0",
-      "urgent": "",
-      "active": "󱓻"
+      "urgent": "",
+      "active": "󱓻",
+      "default": ""
     },
     "persistent-workspaces": {
       "1": [],
@@ -33,30 +34,67 @@
     }
   },
 
+  "mpris": {
+    "format": "{player_icon} {title}",
+    "format-paused": "{player_icon}",
+    "player-icons": {
+      "default": "",
+      "firefox": "",
+      "spotify": ""
+    },
+    "title-len": 20,
+    "on-click": "playerctl play-pause"
+  },
+
   "clock": {
     "format": "{:L%A %H:%M}",
     "tooltip": false,
     "on-click": "uwsm-app -- gnome-calendar"
   },
 
+  "disk": {
+    "format": "",
+    "tooltip-format": "Disk: {used} / {total} ({percentage_used}%)",
+    "path": "/"
+  },
+
+  "cpu": {
+    "format": "",
+    "tooltip-format": "CPU: {usage}%",
+    "on-click": "uwsm-app -- alacritty -e btop"
+  },
+
+  "memory": {
+    "format": "",
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)"
+  },
+
+  "network": {
+    "format-wifi": "",
+    "format-ethernet": "󰈀",
+    "format-disconnected": "󰖪",
+    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}",
+    "tooltip-format-disconnected": "Disconnected"
+  },
+
   "pulseaudio": {
     "format": "{icon}",
-    "format-muted": "",
+    "format-muted": "",
     "format-icons": {
-      "default": ["", "", ""]
+      "default": ["", "", ""]
     },
-    "tooltip-format": "Volume {volume}%",
+    "tooltip-format": "Volume: {volume}%",
     "scroll-step": 5,
     "on-click": "uwsm-app -- pavucontrol"
   },
 
   "battery": {
-    "format": "{capacity}% {icon}",
-    "format-charging": " {capacity}%",
-    "format-discharging": "{capacity}% {icon}",
-    "format-full": "",
-    "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "Capacity {capacity}%\nPower {power:.1f}W"
+    "format": "{icon}",
+    "format-charging": "",
+    "format-full": "",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{capacity}% - {timeTo}"
   },
 
   "tray": {
