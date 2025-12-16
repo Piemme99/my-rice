@@ -106,6 +106,7 @@ Full rationale is documented in [`docs/choices.md`](docs/choices.md).
 5. **Neovim Plugins:** adjust LazyVim config in `configs/nvim/lua/plugins/`. Use `:Lazy sync` after changes.
 6. **Browser Defaults:** update `configs/firefox/policies/` (planned) and note change in documentation.
 7. **Shell Aliases:** edit `~/.config/bash/aliases` to add custom shortcuts (bootstrap ensures `~/.bashrc` sources this file).
+8. **Compose Key:** tweak `~/.XCompose` if you want to add or change accent shortcuts (bootstrap installs a French-friendly default).
 
 ## Logging, Testing & Troubleshooting
 

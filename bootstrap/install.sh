@@ -196,6 +196,16 @@ ensure_bash_alias_hook() {
 }
 
 
+
+install_xcompose() {
+  local compose_src="$REPO_ROOT/configs/XCompose"
+  if [ -f "$compose_src" ]; then
+    cp "$compose_src" "$HOME/.XCompose"
+  fi
+}
+
+
+
 deploy_configs() {
   log_info "Deploying configuration files"
   mkdir -p "$HOME/.config"
@@ -218,6 +228,7 @@ deploy_configs() {
 
   setup_theme_links
   ensure_bash_alias_hook
+  install_xcompose
 
   if command -v fc-cache >/dev/null 2>&1; then
     fc-cache -f >/dev/null 2>&1 || true
